@@ -16,6 +16,7 @@ class JStest extends React.Component {
         {this.getFunction("FirstArgSent", 3,"dsfsd", "aha", true, 67)()+""} <br/>
         {this.getFunction.apply(null, ["first in array",3,"dsfsd", "aha", true, 67])+""} <br/>
         {this.getCustomObject()+""} <br/>
+        Git Test
       </div>
    );
   }

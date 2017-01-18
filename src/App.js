@@ -6,6 +6,7 @@ import List from './List.js';
 import ShoppingList from './ShoppingList.js';
 import Game from './Ttt.js';
 import JStest from './JStest.js';
+import Person from './Person.js';
 
 class App extends React.Component {
   render() {
@@ -27,13 +28,15 @@ class App extends React.Component {
         
         <div className="App">
         	<JStest />
-        		
+        	
+				        		
         </div>
         //<Game />
         
     
           
       //</div>
+        	
     );  
   }
 }

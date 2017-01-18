@@ -1,4 +1,7 @@
 import React from 'react';
+import Personn from './Person.js';
+import PersonnFactory from './PersonFactory.js';
+
 
 class JStest extends React.Component {
   render() {
@@ -16,6 +19,8 @@ class JStest extends React.Component {
         {this.getFunction("FirstArgSent", 3,"dsfsd", "aha", true, 67)()+""} <br/>
         {this.getFunction.apply(null, ["first in array",3,"dsfsd", "aha", true, 67])+""} <br/>
         {this.getCustomObject()+""} <br/>
+        {this.getClass()+""} <br/>
+
         Git Test
       </div>
    );
@@ -328,6 +333,22 @@ class JStest extends React.Component {
     y(7); // ?
 
 
+
+
+  }
+
+
+  getClass(){
+
+    let string="";
+   // let pf = new PersonnFactory();
+
+    let man = PersonnFactory.createPerson();
+    let woman = new Personn("Jane","Smith");
+
+    string += man.fullName() + " loves " + woman.fullName();
+
+    return string;
 
 
   }

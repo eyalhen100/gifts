@@ -2,6 +2,11 @@ import React from 'react';
 import Personn from './Person.js';
 import PersonnFactory from './PersonFactory.js';
 
+// create AppContext
+var AppContext ={}; 
+
+
+
 
 class JStest extends React.Component {
   render() {
@@ -46,6 +51,12 @@ class JStest extends React.Component {
     let s = "String: ";
     s += " | length: " + "kagagoogoo".length;
     s += " | replace: " + "hello, world".replace("hello", "goodbye");
+
+    //appcontext test
+    s+=" AppContext was previously updated by: "+ AppContext.name;
+    AppContext.name = "getString() ";
+    s+=" it is now updated in: "+AppContext.name;
+
     return s;
   }
 
@@ -347,6 +358,27 @@ class JStest extends React.Component {
     let woman = new Personn("Jane","Smith");
 
     string += man.fullName() + " loves " + woman.fullName();
+
+    string+= " AppContext.name was previously updated by : + "+AppContext.name;
+    AppContext.name = "getClass()";
+    string+=" it is now updated in: "+ AppContext.name; 
+
+
+    return string;
+
+
+  }
+
+  getAppContext(){
+
+    let string="";
+   
+
+    AppContext.name = "My App";
+
+    string+= " AppContext.name was previously: + "+AppContext.name;
+    string+=" it is now: "+ " <Name> "+AppContext.name; 
+
 
     return string;
 

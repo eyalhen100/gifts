@@ -7,13 +7,14 @@ import ShoppingList from './ShoppingList.js';
 import Game from './Ttt.js';
 import JStest from './JStest.js';
 import Person from './Person.js';
+import TheReactComponent from './TheReactComponent.js'
 
 class App extends React.Component {
   render() {
     return (
-      /*
-      <div className="App">
-        <div className="App-header">
+     
+      
+        /* <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
@@ -21,21 +22,22 @@ class App extends React.Component {
         <Details />
         <List />
         <ShoppingList name="Joe"/>
-
+          <Game />
+          <JStest />
         */
         
 
-        
-        <div className="App">
-        	<JStest />
-        	
+      <div className="App">  
+          
+        	<TheReactComponent name="Eyal"/>
+     	
 				        		
-        </div>
-        //<Game />
-        
+     
+
+   
     
           
-      //</div>
+      </div>
         	
     );  
   }

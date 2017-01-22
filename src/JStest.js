@@ -25,7 +25,8 @@ class JStest extends React.Component {
         {this.getFunction.apply(null, ["first in array",3,"dsfsd", "aha", true, 67])+""} <br/>
         {this.getCustomObject()+""} <br/>
         {this.getClass()+""} <br/>
-
+        <button onClick={()=>alert(this.getNumbers())}>call get numbers</button>
+       
         Git Test
       </div>
    );

@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App1.css';
 import Details from './Details.js';
 import List from './List.js';
 import ShoppingList from './ShoppingList.js';
@@ -26,14 +26,10 @@ class App extends React.Component {
           <JStest />
         */
         
-
-      <div className="App">  
-          
+        <div>
+         
         	<TheReactComponent name="Eyal"/>
      	
-				        		
-     
-
    
     
           

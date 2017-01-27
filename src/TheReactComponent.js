@@ -64,6 +64,8 @@ class TheReactComponent extends React.Component {
  			nochange:!prevState.nochange,
  		}));
   	this.fontSize=(this.fontSize=="32")?"31":"32";
+  	//this.props.app.setOn();
+  	this.props.app();
   }
   	
   setNoChange(){ 

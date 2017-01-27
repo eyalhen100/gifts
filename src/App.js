@@ -10,6 +10,14 @@ import Person from './Person.js';
 import TheReactComponent from './TheReactComponent.js'
 
 class App extends React.Component {
+  
+
+	constructor(){
+		super();
+		this.state = {};
+  		this.state.on = false;
+	}	
+
   render() {
     return (
      
@@ -28,15 +36,23 @@ class App extends React.Component {
         
         <div>
          
-        	<TheReactComponent name="Eyal"/>
+        	<TheReactComponent name="Eyal"  app={()=>this.setOn()} />
      	
-   
+   			{this.state.on ? <Game /> : ""}
     
           
       </div>
         	
     );  
   }
+
+setOn(){ 
+  	this.setState((prevState, props)=>({ //only setState runs render again.
+  			on:!prevState.on  			
+ 		}));
+  	
+  }
+
 }
 //var x = "";
 //x+= ' window.addEventListener('mousedown', function(e) {  document.body.classList.add('mouse-navigation');  document.body.classList.remove('kbd-navigation');});window.addEventListener('keydown', function(e) {  if (e.keyCode === 9) {    document.body.classList.add('kbd-navigation');    document.body.classList.remove('mouse-navigation');  }});window.addEventListener('click', function(e) {  if (e.target.tagName === 'A' && e.target.getAttribute('href') === '#') {    e.preventDefault();  }});window.onerror = function(message, source, line, col, error) {  var text = error ? error.stack || error : message + ' (at ' + source + ':' + line + ':' + col + ')';  errors.textContent += text + '\n';  errors.style.display = '';};console.error = (function(old) {';

@@ -1,6 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App1.css';
+import AppContext from './AppContext.js';
+import Header from "./Header.js"
+
+
+// old staff
 import Details from './Details.js';
 import List from './List.js';
 import ShoppingList from './ShoppingList.js';
@@ -8,21 +13,41 @@ import Game from './Ttt.js';
 import JStest from './JStest.js';
 import Person from './Person.js';
 import TheReactComponent from './TheReactComponent.js'
+import GiftList from './GiftList.js'
 
 class App extends React.Component {
   
 
 	constructor(){
 		super();
-		this.state = {};
-  		this.state.on = false;
+		this.state = {
+			login:false,
+			menu:null,
+		};
+		
+		this.ctx= new AppContext();
+
+
 	}	
 
   render() {
     return (
      
-      
-        /* <div className="App-header">
+
+      <div>    
+     	<Header ctx={this.ctx} app={this}/>
+
+		     	         
+		{(this.state.login&&(this.state.menu=="mygifts"))?(<GiftList ctx={this.ctx} app={this}/>):""}
+
+
+      </div>
+        
+
+     );
+ }
+// old staff
+/* <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
@@ -32,26 +57,33 @@ class App extends React.Component {
         <ShoppingList name="Joe"/>
           <Game />
           <JStest />
-        */
-        
-        <div>
          
         	<TheReactComponent name="Eyal"  app={()=>this.setOn()} />
      	
    			{this.state.on ? <Game /> : ""}
     
-          
-      </div>
-        	
-    );  
-  }
+        */
 
-setOn(){ 
-  	this.setState((prevState, props)=>({ //only setState runs render again.
-  			on:!prevState.on  			
- 		}));
-  	
-  }
+
+     
+
+   updateLogin(isLogin){
+   		isLogin? this.setState((prevState, props)=>({login:true,menu:"mygifts" }))
+   		: this.setState((prevState, props)=>({login:false,menu:null}))
+   		;
+   }
+
+   setMenu(imenu){
+   		this.setState((prevState, props)=>({login:prevState.login,menu:imenu }));
+   }
+
+   isMenu(imenu){
+   	return (this.state.menu==imenu)?true:false;
+   }
+
+
+
+
 
 }
 //var x = "";

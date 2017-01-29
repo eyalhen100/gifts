@@ -15,16 +15,22 @@ Infrastructure
 [done] conditional rendering
 [done] using css file - better use as variables - much more dynamic control
 [hold] gettign jsx from html or jsx file - for some reason not doing it - probably for flexability - & keeping it small
-[] Locating divs on the screen, add bootstrap grid
-[] read present lists
+[done] add bootstrap
+[done] add menu component
+[done-fix] make the navbar collapsable http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_navbar_collapse&stacked=h
+[done] read react present lists
+[done] add my gifts list
+[] Add Gift Form and button
+[] delete gift
+[] update gift
 
+[] add find friends
+[] add my friends
 
-
-The App
-[] model - user
-[] model - user gifts
-[] model - user gift messages 
+[] Locating divs on the screen - grid 
 [] simple nodejs rest service
 [] save to mongo DB
 [] get list from mongo DB
-
+[] get lists from server (and setState asynch )
+[] login to server (and setState asynch )
+[] keeping a session with the server using coockies

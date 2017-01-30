@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App1.css';
 import AppContext from './AppContext.js';
 import Header from "./Header.js"
-
+import GiftList from './GiftList.js'
+import NewGiftForm from './NewGiftForm.js'
 
 // old staff
 import Details from './Details.js';
@@ -13,7 +14,7 @@ import Game from './Ttt.js';
 import JStest from './JStest.js';
 import Person from './Person.js';
 import TheReactComponent from './TheReactComponent.js'
-import GiftList from './GiftList.js'
+
 
 class App extends React.Component {
   
@@ -39,7 +40,7 @@ class App extends React.Component {
 
 		     	         
 		{(this.state.login&&(this.state.menu=="mygifts"))?(<GiftList ctx={this.ctx} app={this}/>):""}
-
+		{(this.state.login&&(this.state.menu=="newgiftform"))?(<NewGiftForm ctx={this.ctx} app={this}/>):""}
 
       </div>
         

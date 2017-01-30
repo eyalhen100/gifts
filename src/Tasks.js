@@ -20,13 +20,22 @@ Infrastructure
 [done-fix] make the navbar collapsable http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_navbar_collapse&stacked=h
 [done] read react present lists
 [done] add my gifts list
-[] Add Gift Form and button
+[done] Add Gift Form and button - fix key problem 99 - only 1 added. probably list issue key
+[] add find friends
+[] ask to be connect (2 sided connection)
+[] add my friends & requests
+[] add approve request
+[] see my frien gifts
+[] claim gift
+[] marked claimed gifts in red
+______________________________________________________
+
+
+
+
+
 [] delete gift
 [] update gift
-
-[] add find friends
-[] add my friends
-
 [] Locating divs on the screen - grid 
 [] simple nodejs rest service
 [] save to mongo DB
@@ -34,3 +43,4 @@ Infrastructure
 [] get lists from server (and setState asynch )
 [] login to server (and setState asynch )
 [] keeping a session with the server using coockies
+[] nav bootsrtap not collapsing properly

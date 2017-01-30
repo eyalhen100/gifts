@@ -15,7 +15,9 @@ class User {
 	}
 
 	addGift(gift){
-		this.gifts.push(gift);
+		let id = this.gifts.length;// generate the ID	
+		gift.setId(id);	
+		this.gifts.push(gift);		
 	}
 
 	getGifts(){
@@ -44,13 +46,13 @@ class User {
 
 
 class Gift {
-	constructor(giftid, name, price, url, claimed, friendid ){
-		this.giftId = giftid;
+	constructor(name, price, url){
+		this.giftId = 0;
 		this.name = name;
 		this.price = price;
 		this.url = url;
-		this.claimed = claimed;
-		this.friendid = friendid; 
+		this.claimed = false;
+		this.friendid = 0; 
 	}
 
 	getGiftId(){
@@ -73,6 +75,10 @@ class Gift {
 		return this.claimed;
 	}
 
+	setId(id){
+		this.giftId = id;
+	}
+
 }
 
 
@@ -89,6 +95,7 @@ class DB {
 
 	init(){
 		// initiate users
+		this.users.push(new User(0, "Eyal0", "Hen", "eyalhen0@gmail.com", "Tiger0" ));
 		this.users.push(new User(1, "Eyal1", "Hen", "eyalhen1@gmail.com", "Tiger1" ));
 		this.users.push(new User(2, "Eyal2", "Hen", "eyalhen2@gmail.com", "Tiger2" ));
 		this.users.push(new User(3, "Eyal3", "Hen", "eyalhen3@gmail.com", "Tiger3" ));
@@ -98,7 +105,6 @@ class DB {
 		this.users.push(new User(7, "Eyal7", "Hen", "eyalhen7@gmail.com", "Tiger7" ));
 		this.users.push(new User(8, "Eyal8", "Hen", "eyalhen8@gmail.com", "Tiger8" ));
 		this.users.push(new User(9, "Eyal9", "Hen", "eyalhen9@gmail.com", "Tiger9" ));
-		this.users.push(new User(10, "Eyal10", "Hen", "eyalhen10@gmail.com", "Tiger10" ));
 
 		// initiate friends for user 0
 		this.users[0].addFriend(this.users[1]);
@@ -106,14 +112,18 @@ class DB {
 		this.users[0].addFriend(this.users[3]);
 
 		// initiate gifts for user 0
-		this.users[0].addGift(new Gift(1, "Gift1", "$351", "http://www.cnn.com/1", false, 0));
-		this.users[0].addGift(new Gift(2, "Gift2", "$352", "http://www.cnn.com/2", false, 0));
-		this.users[0].addGift(new Gift(3, "Gift3", "$353", "http://www.cnn.com/3", true, 3)); // initiate one claim
-		this.users[0].addGift(new Gift(4, "Gift4", "$354", "http://www.cnn.com/4", false, 0));
-		this.users[0].addGift(new Gift(5, "Gift5", "$355", "http://www.cnn.com/5", false, 0));
-		this.users[0].addGift(new Gift(6, "Gift6", "$356", "http://www.cnn.com/6", false, 0));
+		this.users[0].addGift(new Gift("Gift0", "$351", "http://www.cnn.com/0"));
+		this.users[0].addGift(new Gift("Gift1", "$352", "http://www.cnn.com/1"));
+		this.users[0].addGift(new Gift("Gift2", "$353", "http://www.cnn.com/2")); // initiate one claim
+		this.users[0].addGift(new Gift("Gift3", "$354", "http://www.cnn.com/3"));
+		this.users[0].addGift(new Gift("Gift4", "$355", "http://www.cnn.com/4"));
+		this.users[0].addGift(new Gift("Gift5", "$356", "http://www.cnn.com/5"));
 
 
+	}
+
+	addGift(name,price,url){
+		this.users[0].addGift(new Gift(name,price,url));
 	}
 
 
@@ -139,6 +149,10 @@ class Server {
     	}
 
     	return null;
+	}
+
+	addGift(name,price,url){
+		this.db.addGift(name,price,url);
 	}
 
 
@@ -189,6 +203,10 @@ class AppContext {
 
   }
 
+  addGift(name,price,url){
+  	this.server.addGift(name,price,url);
+  	//this.user.addGift(new Gift(name,price,url));
+  }	
 }
 
 export default AppContext;

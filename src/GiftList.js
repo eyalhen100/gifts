@@ -8,10 +8,10 @@ function ListItem(props) {
   return( 
 
   	<tr>
-	    <td>{props.value.getName()}</td>
+	    <td>{props.value.getName()}<br/><a href={props.value.getUrl()} target="_blank">{props.value.getUrl()}</a> </td>
 		<td>{props.value.getPrice()}</td>
 	    <td>{props.value.isClaimed()?"Claimed":""}</td>
-	    <td>{props.value.getUrl()}</td>
+	   
 	</tr>
 	);
 
@@ -41,14 +41,25 @@ class GiftList extends React.Component {
 
 	return (
 		 <div className="container">
-			 <div className="col-lg-2 col-md-2"/>
-		 	 <div className="col-lg-8 col-md-8">
+
+		 	 {(this.props.ctx.getUser().getGifts().length>6)?(
+		 	 		<div className="row">	
+			   <div className="col-lg-3 col-md-3 col-sm-3 "/>
+		 	    <div className="col-lg-6 col-md-6 col-sm-6 ">
+			     <button className="btn btn-default" onClick={()=>this.props.app.setMenu("newgiftform")}>Add a new gift</button>
+			    </div> 
+			    <div className="col-lg-3 col-md-3 col-sm-3 "/>
+			  </div>
+
+		 	 	):""}
+
+
+
+		 	 <div className="row">	
+			 <div className="col-lg-3 col-md-3 col-sm-3 "/>
+		 	 <div className="col-lg-6 col-md-6 col-sm-6 ">
 			 	 <table className="table table-hover">
-				    <thead>
-				      <tr>
-				        <th>Description</th><th>Price</th><th>Claimed</th><th>Link</th>
-				      </tr>
-				    </thead>
+				   
 				    <tbody>
 				      {gifts.map((gift) =>
 				        <ListItem key={gift.getGiftId().toString()}
@@ -57,7 +68,16 @@ class GiftList extends React.Component {
 				    </tbody>
 				  </table>
 			  </div>
-			  <div className="col-lg-2 col-md-2"/>
+			  <div className="col-lg-3 col-md-3 col-sm-3 "/>
+			  </div>
+
+			  <div className="row">	
+			   <div className="col-lg-3 col-md-3 col-sm-3 "/>
+		 	    <div className="col-lg-6 col-md-6 col-sm-6 ">
+			     <button className="btn btn-default" onClick={()=>this.props.app.setMenu("newgiftform")}>Add a new gift</button>
+			    </div> 
+			    <div className="col-lg-3 col-md-3 col-sm-3 "/>
+			  </div>
 
 
 		 </div>
